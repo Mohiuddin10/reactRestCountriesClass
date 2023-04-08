@@ -34,6 +34,7 @@ function Country (props) {
   return (
     <div className="">
       <h4>Country name: {name.common}</h4>
+      <p>Population: {props.name.population}</p>
     </div>
   )
 }
