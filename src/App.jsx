@@ -20,6 +20,20 @@ function LoadCountries () {
     <div className="countries">
       <h1>Traveling around the world</h1>
     <p>Available Countries: {countries.length}</p>
+    {
+      countries.map(country => <Country name={country}></Country>)
+    }
+    </div>
+  )
+}
+
+
+// function for show countries 
+function Country (props) {
+  const {name} = props.name;
+  return (
+    <div className="">
+      <h4>Country name: {name.common}</h4>
     </div>
   )
 }
