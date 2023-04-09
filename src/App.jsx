@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Countries from './component/Countries/Countries';
 
 function App() {
   
 
   return (
-    <LoadCountries />
+    
+    <Countries/>
   )
 }
 
