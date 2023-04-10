@@ -15,7 +15,9 @@ const Countries = () => {
         <div>
             <h1>Hello from countries: {countries.length}</h1>
             
-            <RingLoader id='spinner' color="#26970c" />
+            <div className="spinner">
+            <RingLoader id='spinner' color="#c1def7" />
+            </div>
             <div className="countries-container">
             {
                 countries.map(country => <Country 
