@@ -5,18 +5,7 @@ import { RingLoader } from 'react-spinners';
 
 
 
-const LoadCountries = () => {
-    return (
-        <div className="countries-container">
-        {
-            countries.map(country => <Country 
-            country={country} 
-            key={country.cca3}
-            />)
-        }
-        </div>
-    );
-};
+
 
 
 const Countries = () => {
@@ -34,8 +23,15 @@ const Countries = () => {
             <div className="spinner">
             <RingLoader id='spinner' color="#c1def7" />
             </div>
-            <button onClick={()=> LoadCountries()}>Load Countries</button>
-            <LoadCountries />
+            <button>Load Countries</button>
+            <div className="countries-container">
+        {
+            countries.map(country => <Country 
+            country={country} 
+            key={country.cca3}
+            />)
+        }
+        </div>
         </div>
     );
 };

@@ -3,6 +3,12 @@ import './Country.css';
 
 const Country = (props) => {
     const {area, region, population, name, startOfWeek, flags} = props.country;
+
+// add to local storage 
+const addToCart = (id) =>{
+    localStorage.setItem(id, 1);
+}
+
     return (
         <div className='country'>
             <h3>Country Name: {name.common}</h3>
@@ -11,6 +17,7 @@ const Country = (props) => {
             <p>Area: {area}</p>
             <p>start of Week: {startOfWeek}</p>
             <p>Region: {region}</p>
+            <button onClick={() => addToCart(key)}>Add to travel list</button>
         </div>
     );
 };
