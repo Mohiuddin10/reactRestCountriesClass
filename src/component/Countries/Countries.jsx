@@ -3,6 +3,22 @@ import Country from '../Country/Country';
 import "./Countries.css";
 import { RingLoader } from 'react-spinners';
 
+
+
+const LoadCountries = () => {
+    return (
+        <div className="countries-container">
+        {
+            countries.map(country => <Country 
+            country={country} 
+            key={country.cca3}
+            />)
+        }
+        </div>
+    );
+};
+
+
 const Countries = () => {
     const [countries, setCountries] = useState([]);
     useEffect( () => {
@@ -18,14 +34,8 @@ const Countries = () => {
             <div className="spinner">
             <RingLoader id='spinner' color="#c1def7" />
             </div>
-            <div className="countries-container">
-            {
-                countries.map(country => <Country 
-                country={country} 
-                key={country.cca3}
-                />)
-            }
-            </div>
+            <button onClick={()=> LoadCountries()}>Load Countries</button>
+            <LoadCountries />
         </div>
     );
 };
