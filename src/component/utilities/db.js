@@ -3,7 +3,7 @@ const addtoLS = id => {
     let countryCart = {};
 
     // get the country cart 
-    const countryCartCheck = localStorage.getItem('country-cart');
+    let countryCartCheck = localStorage.getItem('country-cart');
     if (countryCartCheck){
         console.log(countryCartCheck);
         countryCart = JSON.parse(countryCartCheck);
@@ -26,4 +26,41 @@ const addtoLS = id => {
     
 }
 
-export {addtoLS}
+
+const removeCountryCart = id => {
+    let countrycart = {};
+    let checkCountry = localStorage.getItem('country-cart');
+    if (checkCountry) {
+        countrycart = JSON.parse(checkCountry); 
+    }
+    let quantity = countrycart[id];
+    if (quantity) {
+        let newQunt = quantity - 1;
+        countrycart[id] = newQunt;
+    } 
+    localStorage.setItem('country-cart', JSON.stringify(countrycart));
+    
+};
+
+export {addtoLS, removeCountryCart}
+
+
+
+
+// remove story 
+// let countryCart = {};
+//     let countryCartCheck = localStorage.getItem('country-cart');
+//     if (countryCartCheck){
+//         countryCart = JSON.parse(countryCartCheck);
+//     }
+//     const quantity = countryCart[id];
+//     if (quantity) {
+//         console.log('already added to localStorage')
+//         const newQuantity = quantity - 1;
+//         countryCart[id] = newQuantity;
+//     }
+//     else {
+//         console.log('Not added');
+       
+//     }
+//     localStorage.setItem('country-cart', JSON.stringify(countryCart));
