@@ -1,15 +1,28 @@
 // to store data in localStorage 
 const addtoLS = id => {
-    const quantity = localStorage.getItem(id);
+    let countryCart = {};
+
+    // get the country cart 
+    const countryCartCheck = localStorage.getItem('country-cart');
+    if (countryCartCheck){
+        console.log(countryCartCheck);
+        countryCart = JSON.parse(countryCartCheck);
+    }
+    else {
+        countryCartCheck = {};
+    }
+    const quantity = countryCart[id];
     if (quantity) {
         console.log('already added to localStorage')
-        const newQuantity = parseInt(quantity) + 1;
-        localStorage.setItem(id, newQuantity);
+        const newQuantity = quantity + 1;
+        countryCart[id] = newQuantity;
     }
     else {
         console.log('first item');
-        localStorage.setItem(id, 1)
+       countryCart[id] = 1;
     }
+
+    localStorage.setItem('country-cart', JSON.stringify(countryCart));
     
 }
 
