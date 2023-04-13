@@ -1,5 +1,6 @@
 import React from 'react';
 import './Country.css';
+import { addToLS, removeCountry } from '../utilities/dbTest';
 // import { addtoLS, removeCountryCart} from '../utilities/db';
 
 const Country = (props) => {
@@ -14,6 +15,13 @@ const Country = (props) => {
 //     removeCountryCart(id);
 // };
 
+const addToCart = id => {
+    addToLS(id);
+};
+const remCart = id => {
+    removeCountry(id);
+}
+
     return (
         <div className='country'>
             <h3>Country Name: {name.common}</h3>
@@ -23,7 +31,7 @@ const Country = (props) => {
             <p>start of Week: {startOfWeek}</p>
             <p>Region: {region}</p>
             <button onClick={() => addToCart(id)}>Add to travel list</button>
-            <button onClick={() => removeCountryLS(id)}>Remove country</button>
+            <button onClick={() => remCart(id)}>Remove country</button>
         </div>
     );
 };
