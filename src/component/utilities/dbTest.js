@@ -1,38 +1,30 @@
 const addToLS = id => {
     let countryCart = {};
+    const checkCountry = localStorage.getItem('country-cart');
 
-    const countryCartCheck = localStorage.getItem('country-cart');
-    if (countryCartCheck) {
-        countryCart = JSON.parse(countryCartCheck)
+    if (checkCountry) {
+        countryCart = JSON.parse(checkCountry);
     }
     else {
-        countryCart = {};
+        checkCountry = {};
     }
 
-    let qunt = countryCart[id]
-    if (qunt) {
-        let newQunt = qunt + 1;
-        countryCart[id] = newQunt;
+    let amount = countryCart[id];
+    if (amount) {
+        let newAmount = amount + 1;
+        countryCart[id] = newAmount;
     }
     else {
         countryCart[id] = 1;
     }
+
     localStorage.setItem('country-cart', JSON.stringify(countryCart))
 
 }
 
 const removeCountry = id => {
-    let countryCart = {};
-    const checkCountry = localStorage.getItem('country-cart');
-    if (checkCountry) {
-        countryCart = JSON.parse(checkCountry);
-    }
-    let qunt = countryCart[id];
-    if (qunt) {
-        let newQuent = qunt - 1;
-        countryCart[id] = newQuent;
-    }
-    localStorage.setItem('country-cart', JSON.stringify(countryCart));
+
+    
 }
 
 export {addToLS, removeCountry}
