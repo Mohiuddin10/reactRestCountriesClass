@@ -40,4 +40,9 @@ const removeCountry = id => {
     
 }
 
-export {addToLS, removeCountry}
+const removeAll = id => {
+    localStorage.removeItem('country-cart');
+
+}
+
+export {addToLS, removeCountry, removeAll}
