@@ -1,6 +1,6 @@
 import React from 'react';
 import './Country.css';
-import { addToLS, removeAll, removeCountry } from '../utilities/dbTest';
+import { addToLS, removeAll, removeCountry, removeCountryW } from '../utilities/dbTest';
 // import { addtoLS, removeCountryCart} from '../utilities/db';
 
 const Country = (props) => {
@@ -24,6 +24,9 @@ const remCart = id => {
 const removeAllCountry = id => {
     removeAll(id);
 };
+const removeCountryWhole = id => {
+    removeCountryW(id)
+};
 
     return (
         <div className='country'>
@@ -34,7 +37,8 @@ const removeAllCountry = id => {
             <p>start of Week: {startOfWeek}</p>
             <p>Region: {region}</p>
             <button onClick={() => addToCart(id)}>Add to travel list</button>
-            <button onClick={() => remCart(id)}>Remove country</button>
+            <button onClick={() => remCart(id)}>Reduce country</button>
+            <button onClick={() => removeCountryWhole(id)}>Remove country</button>
             <button onClick={() => removeAllCountry(id)}>Remove all</button>
         </div>
     );

@@ -40,9 +40,23 @@ const removeCountry = id => {
     
 }
 
+const removeCountryW = id => {
+    let countryCart = {};
+
+    const checkCountry = localStorage.getItem('country-cart');
+    if (checkCountry) {
+        countryCart = JSON.parse(checkCountry);
+    }
+    let amount = countryCart[id];
+    if (amount) {
+        countryCart[id] = 0;
+    }
+    localStorage.setItem('country-cart', JSON.stringify(countryCart));
+}
+
 const removeAll = id => {
     localStorage.removeItem('country-cart');
 
 }
 
-export {addToLS, removeCountry, removeAll}
+export {addToLS, removeCountry, removeAll, removeCountryW}
